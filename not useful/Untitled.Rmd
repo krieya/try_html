@@ -1,0 +1,32 @@
+---
+title: "my_first_rmarkdown"
+author: "Rannie"
+date: "9/23/2019"
+output: html_document
+---
+
+```{r setup}
+```
+
+
+# This is my first R markdown project
+
+## chapter 1
+
+My chapter 1 seems grey.
+
+```{r My first code chunk, eval=TRUE, include=TRUE, echo=TRUE}
+(x_from_R <- 5)
+```
+
+reticulate
+
+```{python}
+print(r.x_from_R)
+y_from_python = 5
+```
+
+
+
+
+

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Lecture 4</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Tiffany Timbers" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Lecture 4
+## Introduction to RStudio and RMarkdown
+### Tiffany Timbers
+### 2018/09/14 (updated: 2019-09-18)
+
+---
+
+
+
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+
+???
+
+Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+
+  
+---
+class: center, middle
+
+# xaringan
+
+### /ʃæ.'riŋ.ɡæn/
+
+---
+
+## Lecture learning goals:
+
+### By the end of this week, you should be able to:
+- Use RStudio to create, edit and run an Rscript 
+- Use RStudio to access the help files
+- Use RStudio to edit, create and run R Markdown documents (for reports and presentations)
+
+---
+
+class: inverse, center, middle
+
+# RStudio - an introduction
+
+---
+
+# RStudio
+
+An integrated development environment (IDE) for R *(primarily)*. It is:
+
+1. helpful
+  - code completion
+  - linting (highlighting of syntax errors BEFORE you run your code)
+  - debugging tools
+  
+2. flexible
+  - has literate programming and notebook-like functionality
+  - has editor and console panes for software development of scripts &amp; packages
+---
+
+![](imgs/RStudio_panes.png)
+
+---
+
+## Running Rscripts Interactively in RStudio
+
+- Simplest way to use and run R code in RStudio
+
+- Create a new R script from the menu File -&gt; New File -&gt; R Script
+
+- Write your R code the document that shows up in the editor
+
+- Run your code one of several ways:
+    - using the "Source" button (upper right-hand side) to run the entire document
+    - by typing Ctrl+Enter (Command+Enter on Mac OS) to run the current line or highlighted code
+
+--
+
+**Give it a try!** Type the R code below and try running it all of the ways described above.
+```
+x &lt;- 5
+print(x)
+```
+
+---
+
+## Code output
+
+When running R code in the console output ends up in one of to places, depending on the type of output:
+
+textual output - printed to the console
+
+graphical output - displayed in the Plots pane
+
+
+--
+
+**Give it a try!** See how graphical output is displayed in RStudio by typing the code below in your editor and then running it.
+```
+boxplot(mtcars$mpg, grouping(mtcars$cyl))
+```
+
+---
+
+## Gettin help in RStudio
+
+If you want to know more about what a function or package does, its a similar command to getting help in Jupyter, either:
+
+```
+?function_name
+```
+
+or
+
+```
+help(function_name)
+```
+
+Help then arrives in the panel in the bottom right-hand pane of your IDE.
+
+--
+
+**Give it a try!** Try getting the help for the function named `mean`.
+
+
+---
+
+## Where am I? (or the files pane)
+
+Different from Jupyter, when you open RStudio you open a `.R` or `.Rmd` file the RStudio, the current working directory is **not** neccesarily the project working directory, or the directory of the file you opened.
+
+
+![](https://media.giphy.com/media/oKQW9bVVyalGg/giphy.gif)
+
+---
+
+## Where am I? (or the files pane)
+
+**EVERY SESSION** you need to tell RStudio where you are working. Especially if you are loading other files outside of your `.R` or `.Rmd` file.
+
+So, where are you when you open RStudio? You can find out one of two ways:
+
+1. type `getwd()` in the console
+
+2. In the files pane, click the cog/More button and then click "Go To Working Directory"
+
+--
+
+**Give it a try!** Figure out what your RStudio's current working directory is using both methods.
+
+---
+
+## Where should I be?
+
+To make your life easier, set your working directory to the root directory of the Git repository you are working in!
+
+![](https://media.giphy.com/media/3o7aCTPPm4OHfRLSH6/giphy.gif)
+
+---
+
+## Setting the working directory
+
+You can set the working directory using the following 3 ways:
+
+1. type `setwd("PATH")` in the console (should be used with care though - see [Jenny's article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) about it.)
+
+2. In the files pane, navigate the file structure to where you want the working directory to be. Then click the cog/More button and then click "Set As Working Directory"
+
+3. In the Session menu, click Set Working Directory and then Choose Directory. Navigate the opened file brower to choose the directory. 
+
+--
+
+**Give it a try!** Use each method to set the working direcytory to a different place. Each time, verify it worked each time by typing `getwd()` in the console.
+
+---
+
+## Setting the working directory is important!
+
+If you are working in RStudio and then you start looking like this - you probably forgot to set the working directory.
+
+![](https://media.giphy.com/media/CPskAi4C6WLHa/giphy.gif)
+
+---
+## RStudion Intellisense/Contextual Help
+
+- Another great functionality of RStudio is its contextual help
+
+- If you start typing and press tab, RStudio will show available options for autocomplete with the function descriptions
+
+- Similarly, when typing the parameters of the function
+
+--
+
+**Give it a try!** Start typing `rno` and press `Tab`. Find the function that will generate values from a Normal distribution by reading the descriptions. When passing the parameters, press `Tab` once again to see the descriptions of the parameters. Generate 10 values from a Normal distribution with mean equals 10 and standard deviation equals 1.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
